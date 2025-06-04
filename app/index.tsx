@@ -5,9 +5,14 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Image, StyleSheet, Text, View } from "react-native";
+import Constants from 'expo-constants';
+
+
+
 
 export default function Index() {
   const { brand } = useBrand();
+  console.log('brand', process.env.EXPO_PUBLIC_API_URL)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false)

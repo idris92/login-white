@@ -9,6 +9,7 @@ const BrandContext = createContext<{ brand: BrandConfig }>({ brand: BrandA })
 
 export const BrandProvider = ({ children }: { children: ReactNode }) => {
   const [brandType] = useState(process.env.EXPO_PUBLIC_BRAND)
+  console.log(brandType)
   const brand = brandType === "brandA" ? BrandA : BrandB
 
  return (

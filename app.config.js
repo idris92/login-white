@@ -1,10 +1,16 @@
-{
+
+import 'dotenv/config';
+
+
+
+export default ({ config }) => ({
+  ...config,
   "expo": {
-    "name": "context-class",
-    "slug": "context-class",
+    "name": process.env.EXPO_PUBLIC_APP_NAME ?? config.name,
+    "slug": process.env.EXPO_PUBLIC_BRAND ?? config.slug,
+    "icon": process.env.EXPO_PUBLIC_ICON,
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "contextclass",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -37,6 +43,6 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
   }
-}
+});
