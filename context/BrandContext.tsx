@@ -8,7 +8,7 @@ type BrandType = "brandA" | "brandB"
 const BrandContext = createContext<{ brand: BrandConfig }>({ brand: BrandA })
 
 export const BrandProvider = ({ children }: { children: ReactNode }) => {
-  const [brandType] = useState(process.env.EXPO_PUBLIC_BRAND) // Later replace with dynamic logic
+  const [brandType] = useState(process.env.EXPO_PUBLIC_BRAND)
   const brand = brandType === "brandA" ? BrandA : BrandB
 
  return (
