@@ -28,6 +28,9 @@ export type BrandConfig = {
       300: string,
       "default": string
     },
+    zinc:{
+      300: string
+    },
     white: string,
   }
   images: {
@@ -57,6 +60,9 @@ export const BrandA: BrandConfig = {
       200: "#666876",
       300: "#191D31",
       "default": "#000000"
+    },
+    zinc:{
+      300: "#D8D4D4"
     },
     white: "#fff",
   },
@@ -94,6 +100,9 @@ export const BrandB: BrandConfig = {
       200: "#666876",
       300: "#191D31",
       "default": "#000000"
+    },
+    zinc:{
+      300: "#D8D4D4"
     },
   },
   images: {

@@ -26,7 +26,7 @@ export default function Index() {
                 <InputComponent value={password} setValue={setPassword}  placeholder='Password' secureTextEntry={true}/>
             
               </View>
-              <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: brand.colors.primary[300] }} className='shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-5'>
+              <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: brand.colors.primary[300], shadowColor:brand.colors.zinc[300] }} className='shadow-md rounded-full w-full py-4 mt-5'>
                   <View className='flex flex-row items-center justify-center w-full'>
                     <Text style={{ fontFamily: brand.fonts.medium, color: brand.colors.white}} className='text-lg'>Sign In</Text>
                   </View>
