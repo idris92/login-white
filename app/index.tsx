@@ -1,9 +1,10 @@
 import CustomKeyboardView from "@/components/CustomKeyboardView";
 import InputComponent from "@/components/InputComponent";
+import { useAuth } from "@/context/authContext";
 import { useBrand } from "@/context/BrandContext";
 import { router } from "expo-router";
 import { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { Alert, TouchableOpacity } from "react-native";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 
@@ -11,12 +12,22 @@ import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   const { brand } = useBrand();
-  console.log('brand', process.env.EXPO_PUBLIC_API_URL)
+   const {login} = useAuth()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false)
 
-  const handleLogin=()=>{}
+  const handleLogin=async()=>{
+    if(!email || !password){
+      Alert.alert('Sign In', 'Please fill in all fields')
+      return
+    }else{
+      setLoading(true)
+      const response = await login(email, password)
+      setLoading(false)
+      Alert.alert('Sign in', response.msg)
+    }
+  }
   return (
     <CustomKeyboardView>
           <Image source={brand.images["sign-banner"]} className='w-full h-[420px]' resizeMode='cover' />

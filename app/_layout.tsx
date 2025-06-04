@@ -4,6 +4,8 @@ import { SplashScreen } from "expo-router"
 import { useEffect } from "react"
 import { useLoadFonts } from "@/hooks/useLoadFonts"
 import "@/global.css"
+import {AuthContextProvider} from '@/context/authContext'
+
 
 export default function RootLayout() {
   const [loaded] = useLoadFonts()
@@ -16,8 +18,11 @@ export default function RootLayout() {
 
   if (!loaded) return null
   return (
-    <BrandProvider>
-      <Stack screenOptions={{ headerShown: false }} />
-    </BrandProvider>
+    <AuthContextProvider>
+      <BrandProvider>
+        <Stack screenOptions={{ headerShown: false }} />
+      </BrandProvider>
+    </AuthContextProvider>
+      
   );
 }
