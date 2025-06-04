@@ -6,7 +6,7 @@ import { addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 
 
 
-export const authContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthContextProvider =({children})=>{
     const [user, setUser] = useState(null)
@@ -93,7 +93,7 @@ export const AuthContextProvider =({children})=>{
 }
 
 export const useAuth=()=>{
-    const value = useContext(authContext)
+    const value = useContext(AuthContext)
 
     if(!value){
         throw new Error('useAuth must be wrapped inside authContextProvider')

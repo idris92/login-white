@@ -1,11 +1,11 @@
+import { useBrand } from "@/app/context/BrandContext";
 import CustomKeyboardView from "@/components/CustomKeyboardView";
 import InputComponent from "@/components/InputComponent";
-import { useAuth } from "@/context/authContext";
-import { useBrand } from "@/context/BrandContext";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Alert, TouchableOpacity } from "react-native";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import { useAuth } from "./context/authContext";
+import Loading from "@/components/Loading";
 
 
 
@@ -41,11 +41,18 @@ export default function Index() {
                 <InputComponent value={password} setValue={setPassword}  placeholder='Password' secureTextEntry={true}/>
             
               </View>
-              <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: brand.colors.primary[300], shadowColor:brand.colors.zinc[300] }} className='shadow-md rounded-full w-full py-4 mt-5'>
-                  <View className='flex flex-row items-center justify-center w-full'>
-                    <Text style={{ fontFamily: brand.fonts.medium, color: brand.colors.white}} className='text-lg'>Sign In</Text>
+              {
+                loading ? (
+                  <View className='flex justify-center items-center mt-5'>
+                    <Loading size={24}/>
                   </View>
-              </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: brand.colors.primary[300], shadowColor:brand.colors.zinc[300] }} className='shadow-md rounded-full w-full py-4 mt-5'>
+                      <View className='flex flex-row items-center justify-center w-full'>
+                        <Text style={{ fontFamily: brand.fonts.medium, color: brand.colors.white}} className='text-lg'>Sign In</Text>
+                      </View>
+                  </TouchableOpacity>
+                )}
                 <TouchableOpacity onPress={()=> router.push('/')} className='flex w-full items-center justify-center flex-row mt-5'>
                           <Text style={{ fontFamily: brand.fonts.regular, color: brand.colors.black?.[200]}} className='text-md'>Dont have an account? Sign up</Text>
                 </TouchableOpacity>

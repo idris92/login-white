@@ -1,6 +1,6 @@
-import { View, Text, TextInput } from 'react-native'
-import React from 'react'
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/app/context/BrandContext';
+import React from 'react';
+import { TextInput, View } from 'react-native';
 
 interface props{
     value: string;

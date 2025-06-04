@@ -1,10 +1,29 @@
-import { Stack } from "expo-router";
-import { BrandProvider } from "@/context/BrandContext";
-import { SplashScreen } from "expo-router"
-import { useEffect } from "react"
-import { useLoadFonts } from "@/hooks/useLoadFonts"
-import "@/global.css"
-import {AuthContextProvider} from '@/context/authContext'
+import { BrandProvider } from "@/app/context/BrandContext";
+import { AuthContextProvider, useAuth } from './context/authContext';
+import "@/global.css";
+import { useLoadFonts } from "@/hooks/useLoadFonts";
+import { router, SplashScreen, Stack, useSegments } from "expo-router";
+import { useEffect } from "react";
+
+
+const Mainlayout = ()=>{
+  const {isAuthenticated} = useAuth()
+  const segments = useSegments()
+
+  useEffect(() => {
+    const inApp = segments[0]==='(root)'
+
+    if(isAuthenticated && !inApp){
+      //redirect to home
+      router.replace('/(root)/home')
+    }else if(isAuthenticated === false){
+      //redirect to login page
+      router.replace('/')
+    }
+  }, [isAuthenticated])
+  
+    return <Stack screenOptions={{headerShown:false}} />
+}
 
 
 export default function RootLayout() {
@@ -20,7 +39,7 @@ export default function RootLayout() {
   return (
     <AuthContextProvider>
       <BrandProvider>
-        <Stack screenOptions={{ headerShown: false }} />
+        <Mainlayout/>
       </BrandProvider>
     </AuthContextProvider>
       
