@@ -1,4 +1,4 @@
-import { useBrand } from '@/app/context/BrandContext';
+import { useBrand } from '@/context/BrandContext';
 import React from 'react';
 import { TextInput, View } from 'react-native';
 

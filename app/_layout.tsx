@@ -1,9 +1,9 @@
-import { BrandProvider } from "@/app/context/BrandContext";
-import { AuthContextProvider, useAuth } from './context/authContext';
+import { BrandProvider } from "@/context/BrandContext";
 import "@/global.css";
 import { useLoadFonts } from "@/hooks/useLoadFonts";
 import { router, SplashScreen, Stack, useSegments } from "expo-router";
 import { useEffect } from "react";
+import { AuthContextProvider, useAuth } from '../context/authContext';
 
 
 const Mainlayout = ()=>{

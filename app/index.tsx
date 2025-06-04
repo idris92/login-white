@@ -1,11 +1,11 @@
-import { useBrand } from "@/app/context/BrandContext";
 import CustomKeyboardView from "@/components/CustomKeyboardView";
 import InputComponent from "@/components/InputComponent";
+import Loading from "@/components/Loading";
+import { useBrand } from "@/context/BrandContext";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
-import { useAuth } from "./context/authContext";
-import Loading from "@/components/Loading";
+import { useAuth } from "../context/authContext";
 
 
 

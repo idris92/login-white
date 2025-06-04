@@ -1,7 +1,8 @@
-import { useBrand } from '@/app/context/BrandContext';
+import { useAuth } from '@/context/authContext';
+import { useBrand } from '@/context/BrandContext';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { useAuth } from '../context/authContext';
+
 
 const Home = () => {
     const { brand } = useBrand();

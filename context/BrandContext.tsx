@@ -1,6 +1,6 @@
 // context/BrandContext.tsx
 import React, { createContext, ReactNode, useContext, useState } from "react"
-import { BrandA, BrandB, BrandConfig } from "../../theme/brands"
+import { BrandA, BrandB, BrandConfig } from "../theme/brands"
 
 type BrandType = "brandA" | "brandB"
 
