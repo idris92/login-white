@@ -5,7 +5,6 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Image, StyleSheet, Text, View } from "react-native";
-import Constants from 'expo-constants';
 
 
 
